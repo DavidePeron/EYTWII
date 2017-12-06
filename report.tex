@@ -114,9 +114,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREPARE TITLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\blue Satellite Communications \\
-\blueb Satellite system to provide communication services to polar regions in Europe and Russia}
-\author{Ana Reviejo Jiménez \\ Marta Munilla Díez\\ Oscar Pla Terrada\\ Davide Peron\\ Cristina Gava\\ Javier Garcia Camin}
+\title{\blue Eytu project}
+\author{Davide Peron\\ Cristina Gava}
 \date{\today}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -126,9 +125,52 @@
 \tableofcontents
 \clearpage
 
-\section{Problem Description} \label{sec:problem_description}
+\section{Power supply}
+On the Wii U motherboard there is a discrete number of components involved in the power supply section, there are both passive components, discrete semiconductors and Integrated circuits all working together to power the PCB. In \autoref{tab:power} we summarized the main components listed under type and name: we can see the huge amount of passive components needed to support the integrated circuits and the discrete amount of transistors and diodes; on the other hand the number of integrated circuit is restrained.
 
-\section{Simulator and Orbits} \label{sec:orbit}
+\subsection{Integrated circuits description}
+The three main integrated components that are worth to be described are:
+\begin{itemize}
+\item \textit{The power management IC}, model TPS65070RSL from Texas Instruments;
+\item \textit{The Regulator DC/DC Converter, Step-Up}, model AIC1634GG from Analog Integration corp.;
+\item \textit{The switchig Regulator DC/DC Controller, Step-Down}, model LV5066V from ON Semiconductors.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width = .7\textwidth]{power_managIC.png}
+\caption{Schematic for TPS65070RSL}
+\label{fig:TPS65070RSL}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\textbf{Component type} & \textbf{Name} & \textbf{Qty}\\
+\midrule
+Integrated circuit & & \\
+ & Regulator & 7\\
+ & Analog IC & 5\\
+ & Voltage Detector & 1\\
+ & Power Manag. IC & 1\\
+\hline
+Discrete Semiconductor & &\\
+ & Diode & 30\\
+ & Transistor & 35\\
+\hline
+Passive comp. & &\\
+ & Capacitor & 176\\
+ & Fuse & 1\\
+ & Ferrite Bead & 6\\
+ & Inductor & 16\\
+ & Resistor & 148\\ 
+\bottomrule
+\end{tabular}
+\caption{Power supply component list}
+\label{tab:power}
+\end{table}
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,bibliography}
