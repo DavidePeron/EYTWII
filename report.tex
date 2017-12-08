@@ -100,6 +100,7 @@
 \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 
 \usepackage[acronym]{glossaries}
+\newacronym{pmu}{PMU}{Power Management Unit}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREPARE TITLE
@@ -230,6 +231,31 @@
 
 			Finally, the temperature inside the chip is measured through a diode in the following way.
 			The diode voltage $V_{BE}$ has a well-defined characteristic versus temperature, so the ambient temperature can be predicted in applications by knowing the +25°C value of the $V_{BE}$ voltage and then monitoring the delta of that voltage as the temperature changes.
+		\newpage
+		\subsubsection{Dual Antenna Wireless Module}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=.6\textwidth]{dual_antenna_wireless1.png}
+			\caption{GamePad's wireless module}
+			\label{fig:gamepad_wireless}
+		\end{figure}
+		Another module that can be extracted from the motherboard is the Dual Antenna Wireless Module, i.e. the module that allow to stream video and data between Wii U console and GamePad. It is shown in \autoref{fig:gamepad_wireless} and was mounted in place of the blue square in \autoref{fig:gamepad_motherboard}.
+
+		This module is powered by a Broadcom BCM4319XKUBG (red square in \autoref{fig:gamepad_wireless}) and is explained in \cite{broadcom_wireless}.
+
+		Its \gls{pmu} provides significant power savings by putting the BCM4319XKUBG into various power management states appropriate to the current environment and activities that are being performed. The \gls{pmu} enables and disables internal regulators, switches, and other blocks based on a computation of the required resources and the relationship between resources and the time needed to enable and disable them.
+
+		Also the clock speed can be dynamically changed depending on the current requirements. Obviously, slower clock speeds are used wherever possible.
+
+		Free different power states are defined:
+		\begin{description}
+			\item [Active Mode] All BCM4319XKUBG cores are powered up and fully functional. All required regulators are enabled and put in the most efficient mode.Clock speeds are dynamically adjusted by the \gls{pmu}.
+			\item [Sleep Mode] All main clocks are shut down, only one clock is active and is used from the \gls{pmu} to wake up the chip. In Sleep mode, the primary power consumed is due to leakage current.
+			\item	[Power-down mode] The BCM4319XKUBG is effectively powered off by shutting down all internal regulators. The chip is brought out of this mode by external logic re-enabling the internal regulators.
+
+		\end{description}
+
+
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,bibliography}
 
