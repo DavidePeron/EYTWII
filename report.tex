@@ -100,23 +100,13 @@
 \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 
 \usepackage[acronym]{glossaries}
-\newacronym[plural=GEO,longplural={Geostationary Earth Orbits}]{geo}{GEO}{Geostationary Earth Orbit}
-\newacronym[plural=LEO,longplural={Low Earth Orbits}]{leo}{LEO}{Low Earth Orbit}
-\newacronym[plural=MEO,longplural={Medium Earth Orbits}]{meo}{MEO}{Medium Earth Orbit}
-\newacronym[plural=HEO,longplural={High Elliptical Orbits}]{heo}{HEO}{High Elliptical Orbit}
-\newacronym{eci}{ECI}{Earth Centered Inertial}
-\newacronym{lla}{LLA}{geodetic latitude, longitude, altitude coordinates}
-\newacronym[plural=GS,longplural={Ground Stations}]{gs}{GS}{Ground Station}
-\newacronym{raan}{RAAN}{Right Ascending of Ascension Node}
-\newacronym{eirp}{EIRP}{Effective Isotropic Radiated Power}
-\newacronym{eol}{EOL}{End Of Life}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREPARE TITLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\blue Satellite Communications \\
-\blueb Satellite system to provide communication services to polar regions in Europe and Russia}
-\author{Ana Reviejo Jiménez \\ Marta Munilla Díez\\ Oscar Pla Terrada\\ Davide Peron\\ Cristina Gava\\ Javier Garcia Camin}
+\title{\blue User equipment and terminals \\
+\blueb With great power comes great responsibility}
+\author{Davide Peron\\ Cristina Gava}
 \date{\today}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -126,10 +116,50 @@
 \tableofcontents
 \clearpage
 
-\section{Problem Description} \label{sec:problem_description}
+\section{Power Supply} \label{sec:power_supply}
 
-\section{Simulator and Orbits} \label{sec:orbit}
+\section{Power Management} \label{sec:power_management}
+	\subsection{Wii U}
+		The Wii U transformer has a maximum output voltage of 15V and a maximum output current of 5A, so this console consumes $15\cdot 5 = 75W$ while under full load.
+		\begin{figure}[ht]
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{external_view.jpeg}
+				\caption{Wii U without external case}
+				\label{fig:external}
+			\end{minipage}
+			\begin{minipage}{0.45\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{CPU_&_GPU.png}
+				\caption{Wii U Multi Chip Module}
+				\label{fig:mcm}
+			\end{minipage}
+		\end{figure}
+		\begin{figure}[ht]
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{fan-heatsink.jpeg}
+				\caption{Fan and heat sink position}
+				\label{fig:fan-heatsink}
+			\end{minipage}
+			\begin{minipage}{0.45\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{air_flow.jpeg}
+				\caption{Wii U air flow demonstration}
+				\label{fig:airflow}
+			\end{minipage}
+		\end{figure}
+		In \autoref{fig:external} is shown the console without its external case.
+		The first thing we note is that the bigger components inside the Wii U are the optical drive, a single heat sink used to cool down the entire console and two fans to allow the air to pass through the console.
 
+		Analysing the position of the fan and of the heat sink, we note that the heat sink is over the main source of heat (the CPU and GPU) and it is close to the fan rotated in a way that the air can pass through it, as shown in \autoref{fig:airflow}.
+
+		Removing the heat sink we see another thermal compound that cover both CPU and GPU. These two are put close each other maybe to reduce the latency and power consumption.
+
+	\subsection{GamePad}
+		The GamePad transformer has a maximum output voltage of 4.75V and a maximum output current of 1.6A, so this console consumes $4.75\cdot 1.6 = 7.6W$ while under full load.
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,bibliography}
 
