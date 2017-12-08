@@ -160,6 +160,76 @@
 
 	\subsection{GamePad}
 		The GamePad transformer has a maximum output voltage of 4.75V and a maximum output current of 1.6A, so this console consumes $4.75\cdot 1.6 = 7.6W$ while under full load.
+		\begin{figure}[htbp]
+			\includegraphics[width=\textwidth]{gamepad_motherboard_front.png}
+			\caption{GamePad's motherboard}
+			\label{fig:gamepad_motherboard}
+		\end{figure}
+		\subsubsection{Touch Screen Controller}
+			TSC2046I is the touch screen controller used in the GamePad of the Wii U. TSC2046I is a chip integrated in the GamePad's motherboard, specifically is the chip in the yellow square in \autoref{fig:gamepad_motherboard}.
+
+			Checking the datasheet \cite{touchscreen} we can get some interesting information.
+			\begin{itemize}
+				\item It has an on-chip $2.5V$ voltage reference that can be used for the auxiliary input, battery monitor, and temperature measurement modes. This can be powered down when not used to conserve power.
+				\item The power consumption is less than $0.75mW$ at $2.7V$.
+			\end{itemize}
+
+			In \autoref{tab:thermal_touch} are summarized the parameters relatively to the thermal management of the chip.
+
+			In \autoref{fig:vref_temp} and \autoref{fig:vref_vcc} is shown as the on-chip reference voltage previously mentioned is actually not fixed at $2.5V$ but is floating around this value and depends on the Temperature and on the input voltage $V_{CC}$. In \autoref{fig:sample_vcc} and \autoref{fig:vcc_temp} is shown as the Sample Rate of the Touch Screen Controller varies with the input voltage and how this last one varies with the temperature.
+
+			In general we can deduct that if $V_{CC}$ is too low (more or less lower than $3V$), both the sample rate and the reference voltage $V_{REF}$ will decrease.
+
+
+			\begin{table}[htbp]
+				\centering
+				\begin{tabular}{cc}
+				\toprule
+				Parameter & Value\\
+				\midrule
+				Power Dissipation     & 250mW\\
+				Maximum Junction Temperature  & $+150^\circ C$\\
+				Operating Temperature Range & $-40^\circ C$ to $+85^\circ C$ \\
+				Storage Temperature Range & $-65^\circ C$ to $+150^\circ C$ \\
+				Lead Temperature  & $+300^\circ C$\\
+				\bottomrule
+				\end{tabular}
+				\caption{Thermal management in TSC2046I}
+				\label{tab:thermal_touch}
+			\end{table}
+
+			\begin{figure}[htbp]
+				\begin{minipage}{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{v_ref_temp.png}
+					\caption{Variation of $V_{REF}$ with Temperature}
+					\label{fig:vref_temp}
+				\end{minipage}
+				\begin{minipage}{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{v_ref_vcc.png}
+					\caption{Variation of $V_{REF}$ with $V_{CC}$}
+					\label{fig:vref_vcc}
+				\end{minipage}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\begin{minipage}{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{samplerate_vcc.png}
+					\caption{Variation of the Sample Rate with $V_{CC}$}
+					\label{fig:sample_vcc}
+				\end{minipage}
+				\begin{minipage}{.5\textwidth}
+					\centering
+					\includegraphics[width=\textwidth]{VCC_temp.png}
+					\caption{Variation of $V_{CC}$ with the temperature}
+					\label{fig:vcc_temp}
+				\end{minipage}
+			\end{figure}
+
+			Finally, the temperature inside the chip is measured through a diode in the following way.
+			The diode voltage $V_{BE}$ has a well-defined characteristic versus temperature, so the ambient temperature can be predicted in applications by knowing the +25°C value of the $V_{BE}$ voltage and then monitoring the delta of that voltage as the temperature changes.
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,bibliography}
 
