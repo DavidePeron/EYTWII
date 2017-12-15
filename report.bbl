@@ -21,6 +21,12 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{componentslist}
+\BIBentryALTinterwordspacing
+Electronic PRODUCTS. [Online]. Available:
+  \url{https://www.electronicproducts.com/Nintendo_Wii_U_Basic_Gaming_Console-whatsinside_text-150.aspx}
+\BIBentrySTDinterwordspacing
+
 \bibitem{mosfet8026}
 \emph{FDMS8026S N-Channel PowerTrench\textsuperscript{\textregistered}
   SyncFET\textsuperscript{TM}}, Fairchild Semiconductors (Now ON
@@ -41,5 +47,9 @@
 \bibitem{broadcom_wireless}
 \emph{Single-Chip IEEE 802.11TM a/b/g/n MAC/Baseband/ Radio with Integrated
   SDIO and USB Interfaces}, Broadcom, April 2014.
+
+\bibitem{DCcontroller}
+\emph{Built-in 2-channels DC/DC Converter Controller}, Sanyo Semiconductors,
+  February 2012.
 
 \end{thebibliography}

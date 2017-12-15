@@ -122,10 +122,10 @@
 \clearpage
 
 \section{Power supply}
-  \subsection{Wii U main console}
-		  On the Wii U motherboard there is a discrete number of components involved in the power supply section, there are both passive components, discrete semiconductors and \glspl{ic} all working together to power the \gls{pcb}. In \autoref{tab:power} we summarized the main components listed under type and name: we can see the huge amount of passive components needed to support the integrated circuits and the discrete amount of transistors and		  diodes; on the other hand the number of integrated circuit is restrained.
+  \subsection{Wii U}
+		  On the Wii U main console motherboard there is a discrete number of components involved in the power supply section, there are both passive components, discrete semiconductors and \glspl{ic} all working together to power the \gls{pcb}. In \autoref{tab:power} we summarized the main components listed under type and name: it can be seen the huge amount of passive components needed to support the integrated circuits and the discrete amount of transistors and		  diodes; on the other hand, the number of integrated circuit is restrained \cite{componentslist}.
 
-		  In \autoref{fig:motherboard} a photo of the motherboard section regarding the power supply is shown: the red squares represent three N-channel MOSFET, used to minimize losses in power conversion. Since one of their applications is for a regulator in DC/DC converter, we suppose they are part of the power supply system in the board \cite{mosfet8026}.
+		  In \autoref{fig:motherboard} a photo of the motherboard section regarding the power supply is shown: the red squares represent three N-channel MOSFET, used to minimize losses in power conversion. Since one of their applications like a synchronous rectifier for DC/DC converter, we suppose they are part of the power supply system in the board \cite{mosfet8026}.
 
 		  \begin{figure}
 				\centering
@@ -137,9 +137,9 @@
 		  \subsubsection{Integrated circuits description}
 				The three main integrated components that are worth to be described are:
 				\begin{itemize}
-				  \item \textit{The power management \gls{ic}}, model TPS65070RSL from Texas Instruments;
-				  \item \textit{The Regulator DC/DC Converter, Step-Up}, model AIC1634GG from Analog Integration corp.;
-				  \item \textit{The switching Regulator DC/DC Controller, Step-Down}, model LV5066V from ON Semiconductors.
+				  \item \textbf{The power management \gls{ic}}, model TPS65070RSL from \textit{Texas Instruments};
+				  \item \textbf{The Regulator DC/DC Converter, Step-Up}, model AIC1634GG from \textit{Analog Integration corp.};
+				  \item \textbf{The switching Regulator DC/DC Controller, Step-Down}, model LV5066V from \textit{ON Semiconductors}.
 				\end{itemize}
 
 				\begin{figure}
@@ -179,7 +179,7 @@
 				\end{figure}
 
 				\begin{description}
-				  \item [Control power \gls{ic} TPS65070RSL] Is a single chip power solution for portable applications that can be powered through a USB port or directly by a DC voltage from a wall adapter connected to \textquotedblleft AC\textquotedblright\ pin. The module has the following main characteristics:
+				  \item [Control power \gls{ic} TPS65070RSL] It is a single chip power solution for portable applications, that can be powered through a USB port, or directly by a DC voltage from a wall adapter connected to \textquotedblleft AC\textquotedblright\ pin. The module has the following main characteristics:
 						\begin{itemize}
 							\item 2A output current on the power path;
 							\item Thermal regulation;
@@ -195,8 +195,7 @@
 						\end{itemize}
 				  A block diagram of the module is represented in \autoref{fig:TPS65070RSL}.
 
-				  The two inputs to the power path (AC and USB) support the same voltage rating but normally have different current limits (Ac is at the higher limit). If voltage is applied at both inputs and both are enabled AC will be preferred over USB and the device will only be powered from AC. The current at the input is shared between charging the battery and powering the system load; anyway priority is given to the system load. The current is always monitored so that if the sum of the charging and
-				  system load currents exceeds the present maximum input current the charging current is reduced automatically \cite{ICpower}.
+				  The two inputs to the power path (AC and USB) support the same voltage rating but normally have different current limits (Ac is at the higher limit). If voltage is applied at both inputs and both are enabled AC will be preferred over USB and the device will only be powered from AC. The current at the input is shared between charging the battery and powering the system load; anyway priority is given to the system load. The current is always monitored, so that the charging current is reduced automatically if the sum of the charging and system load currents exceeds the present maximum input current \cite{ICpower}.
 
 				  \item[The Regulator DC/DC Converter AIC1634GG] The module is a current-mode pulse-width modulation (PWM), step-up DC/DC Converter which, through the N-channel MOSFET, allows for step-up applications with up to 30V output voltage. The high switching frequency (1.4MHz) allows the use of small external components.
 
@@ -240,7 +239,7 @@
 
 \section{Power Management} \label{sec:power_management}
 	\subsection{Wii U}
-		The Wii U transformer has a maximum output voltage of 15V and a maximum output current of 5A, so this console consumes $15\cdot 5 = 75W$ while under full load. Actually, even when a resources demanding game is running, the power consumed by Wii U is a bit more than an half of the maximum power consumption.
+		The Wii U transformer has a maximum output voltage of 15V and a maximum output current of 5A, so this console consumes $15\cdot 5 = 75W$ under full load. Actually, even when a resource-demanding game is running, the power consumed by Wii U is a bit more than an half of the maximum power consumption.
 		\begin{figure}[htbp]
 			\centering
 			\begin{minipage}{0.45\textwidth}
@@ -274,32 +273,31 @@
 			\end{minipage}
 		\end{figure}
 
-		In \autoref{fig:external} is shown the console without its external case.
-		The first thing we note is that the bigger components inside the Wii U are the optical drive, a single heat sink used to cool down the entire console and two fans to allow the air to pass through the console.
+		In \autoref{fig:external} the console without its external case is shown: the first thing we notice is that the bigger components inside the Wii U are the optical drive, a single heat sink used to cool down the entire console and two fans to allow the air to pass through the console.
 
-		Analysing the position of the fans and of the heat sink, we note that the heat sink is over the main source of heat (CPU and GPU) and it is close to the fan rotated in a way that the air can pass through it, as shown in \autoref{fig:airflow}.
+		Analysing the position of the fans and of the heat sink, we note that the heat sink is positioned on the main source of heat (CPU and GPU), it is close to the fan and rotated in such a way that the air can pass through it, as shown in \autoref{fig:airflow}.
 
-		Removing the heat sink we see another thermal compound that cover both CPU and GPU. These two are put close each other to reduce the latency and power consumption.
+		Removing the heat sink we see another thermal component that covers both CPU and GPU. These two are put close to each other to reduce the latency and the power consumption.
 
 	\subsection{GamePad}
-		The GamePad transformer has a maximum output voltage of 4.75V and a maximum output current of 1.6A, so it consumes $4.75\cdot 1.6 = 7.6W$ while under full load.
+		The GamePad transformer has a maximum output voltage of 4.75V and a maximum output current of 1.6A, so it consumes $4.75\cdot 1.6 = 7.6W$ under full load.
 		\begin{figure}[htbp]
 			\includegraphics[width=\textwidth]{gamepad_motherboard_front.png}
 			\caption{GamePad's motherboard}
 			\label{fig:gamepad_motherboard}
 		\end{figure}
 		\subsubsection{Touch Screen Controller}
-			TSC2046I is the touch screen controller used in the GamePad of the Wii U. TSC2046I is a chip integrated in the GamePad's motherboard, specifically is the chip in the yellow square in \autoref{fig:gamepad_motherboard}.
+			TSC2046I is the touch screen controller used in the Wii U's GamePad. TSC2046I is a chip integrated in the GamePad's motherboard, to be specific, it is the chip in the yellow square in \autoref{fig:gamepad_motherboard}.
 
-			Checking the datasheet \cite{touchscreen} we can get some interesting information.
+			Checking the datasheet \cite{touchscreen} we can get some interesting information:
 			\begin{itemize}
-				\item It has an on-chip $2.5V$ voltage reference that can be used for the auxiliary input, battery monitor, and temperature measurement modes. This can be powered down when not used to conserve power.
+				\item The controller has an on-chip $2.5V$ voltage reference that can be used for the auxiliary input, battery monitor, and temperature measurement modes. This can be powered down when not used to conserve power.
 				\item The power consumption is less than $0.75mW$ at $2.7V$.
 			\end{itemize}
 
-			In \autoref{tab:thermal_touch} are summarized the parameters relatively to the thermal management of the chip.
+			In \autoref{tab:thermal_touch} we see summarized the parameters relative to the chip thermal management.
 
-			In \autoref{fig:vref_temp} and \autoref{fig:vref_vcc} is shown as the on-chip reference voltage previously mentioned is actually not fixed at $2.5V$ but is floating around this value and depends on the Temperature and on the input voltage $V_{CC}$. In \autoref{fig:sample_vcc} and \autoref{fig:vcc_temp} is shown as the Sample Rate of the Touch Screen Controller varies with the input voltage and how this last one varies with the temperature.
+			In \autoref{fig:vref_temp} and \autoref{fig:vref_vcc} it is shown how the previously mentioned on-chip reference voltage is actually not fixed at $2.5V$ but is floating around this value and depends on the Temperature and on the input voltage $V_{CC}$. In \autoref{fig:sample_vcc} and \autoref{fig:vcc_temp} it is shown how the Sample Rate of the Touch Screen Controller varies with the input voltage and how the latter varies with the temperature.
 
 			In general we can deduct that if $V_{CC}$ is too low (more or less lower than $3V$), both the sample rate and the reference voltage $V_{REF}$ will decrease.
 
@@ -351,8 +349,7 @@
 				\end{minipage}
 			\end{figure}
 
-			Finally, the temperature inside the chip is measured through a diode in the following way.
-			The diode voltage $V_{BE}$ has a well-defined characteristic versus temperature, so the ambient temperature can be predicted in applications by knowing the +25°C value of the $V_{BE}$ voltage and then monitoring the delta of that voltage as the temperature changes.
+			Finally, the temperature inside the chip is measured through a diode in the following way: the diode voltage $V_{BE}$ has a well-defined characteristic that depends on temperature, so the ambient temperature can be predicted in applications by knowing the +25°C value of the $V_{BE}$ voltage and then monitoring the delta of that voltage as the temperature changes.
 			\newpage
 
 		\subsubsection{Dual Antenna Wireless Module}
@@ -362,17 +359,17 @@
 				\caption{GamePad's wireless module}
 				\label{fig:gamepad_wireless}
 			\end{figure}
-			Another module that can be extracted from the motherboard is the Dual Antenna Wireless Module, i.e. the module that allow to stream video and data between Wii U console and GamePad. It is shown in \autoref{fig:gamepad_wireless} and was mounted in place of the blue square in \autoref{fig:gamepad_motherboard}.
+			Another module that can be extracted from the motherboard is the Dual Antenna Wireless Module, i.e. the module that allows to stream video and data between Wii U console and the GamePad. The module is shown in \autoref{fig:gamepad_wireless} and was mounted in place of the blue square in \autoref{fig:gamepad_motherboard}.
 
-			This module is powered by a Broadcom BCM4319XKUBG (red square in \autoref{fig:gamepad_wireless}) and is explained in \cite{broadcom_wireless}.
+			This module is powered by a Broadcom BCM4319XKUBG (red square in \autoref{fig:gamepad_wireless}) and its functioning is explained in \cite{broadcom_wireless}.
 
-			Its \gls{pmu} provides significant power savings by putting the BCM4319XKUBG into various power management states appropriate to the current environment and activities that are being performed. The \gls{pmu} enables and disables internal regulators, switches, and other blocks based on a computation of the required resources and the relationship between resources and the time needed to enable and disable them.
+			Its \gls{pmu} provides significant power savings by putting the BCM4319XKUBG into various power management states, which are appropriate for the current environment and activities that are being performed. The \gls{pmu} enables and disables internal regulators, switches, and other blocks based on a computation of the required resources and the relationship between resources and the time needed to enable and disable them.
 
 			Also the clock speed can be dynamically changed depending on the current requirements. Obviously, slower clock speeds are used wherever possible.
 
 			Free different power states are defined:
 			\begin{description}
-				\item [Active Mode] All BCM4319XKUBG cores are powered up and fully functional. All required regulators are enabled and put in the most efficient mode.Clock speeds are dynamically adjusted by the \gls{pmu}.
+				\item [Active Mode] All BCM4319XKUBG cores are powered up and fully functional, all required regulators are enabled and put in the most efficient mode. Clocks' speed is dynamically adjusted by the \gls{pmu}.
 				\item [Sleep Mode] All main clocks are shut down, only one clock is active and is used from the \gls{pmu} to wake up the chip. In Sleep mode, the primary power consumed is due to leakage current.
 				\item	[Power-down mode] The BCM4319XKUBG is effectively powered off by shutting down all internal regulators. The chip is brought out of this mode by external logic re-enabling the internal regulators.
 
@@ -386,7 +383,7 @@
 		\item Signal timing;
   \end{itemize}
 
-  \subsection{Wii U main console motherboard PCB}
+  \subsection{Wii U motherboard PCB}
 		\subsubsection{Grounding}
 		  \begin{figure}[h]
 				\begin{minipage}{.47 \textwidth}
@@ -401,7 +398,7 @@
 				  \label{fig:powerbottom}
 				\end{minipage}
 		  \end{figure}
-		  The Wii U motherboard is a very complex entity and so in this work we will focus only on some examples of \gls{emc}. In \autoref{fig:powertop} and \autoref{fig:powerbottom} there are two zoomed images of the power connector and its relative components: from \autoref{fig:powertop} it can be seen the power and the ground connections as the two pins coming out from the connector and going to several capacitor. The lower pin represents the ground voltage reference, which is brought to the bottom side of the \gls{pcb} through the coupling capacitor n$\deg$ C1428. On the other hand, the fuse numbered as F1004, testifies that the upper pin is the power reference and it is coupled to the ground voltage through the capacitor n$\deg$ C1429. On the other figure (\autoref{fig:powerbottom}) we see the bottom side of the motherboard, where it is clear the connection of the top side voltage reference to the ground plane through the track framed in orange.
+		  The Wii U motherboard is a very complex entity, so in this work we will focus only on some examples of \gls{emc}. In \autoref{fig:powertop} and \autoref{fig:powerbottom} there are two zoomed images of the power connector and its relative components: from \autoref{fig:powertop} it can be seen the power and the ground connections as the two pins coming out from the connector and going to several capacitors. The lower pin represents the ground voltage reference, which is brought to the bottom side of the \gls{pcb} through the coupling capacitor n$\deg$ C1428. On the other hand, the fuse numbered as F1004, testifies that the upper pin is the power reference and it is coupled to the ground voltage through the capacitor n$\deg$ C1429. On the other figure (\autoref{fig:powerbottom}) we see the bottom side of the motherboard, where it is clear the connection of the top side voltage reference to the ground plane through the track framed in orange.
 
 		  \begin{figure}[htbp]
 					\centering
@@ -416,7 +413,7 @@
 				\label{fig:LV5065}
 		  \end{figure}
 
-		  Another example of grounding is represented in \autoref{fig:LV5065bd} and \autoref{fig:LV5065}, where there is a voltage regulator and its schematic. From the schematic we can see, for example, that some pins are part of the power structure of the \gls{ic} and are coupled with the ground level through some capacitor. In particular, pins $V_{IN}$ (number 15) and $V_{DD}$ (number 1) are connected to ground by two capacitors \DP{Dove è il numero dei pin in figura??}; moreover pins $VLIN5$, $V_{DD}$, $CBOOT1$ and $CBOOT2$ appear to be connected in a parallel way to ground. Finally, we can also see that pins $ILIM1$ and $ILIM2$ are connected to the same ground through the connection segment in green \DP{Quale segmento verde? La figura è in bianco e nero e nella foto in figura 21 non si vede il nome dei pin}, whose function is supposed to be avoiding quiet ground terminals and ground loops.
+		  Another example of grounding is represented in \autoref{fig:LV5065bd} and \autoref{fig:LV5065}, where there is a voltage regulator and its schematic. From the schematic we can see, for example, that some pins are part of the power structure of the \gls{ic} and are coupled with the ground level through some capacitors. In particular, pins $V_{IN}$ and $V_{DD}$ are connected to ground by two capacitors; moreover pins $VLIN5$, $V_{DD}$, $CBOOT1$ and $CBOOT2$ appear to be connected in a parallel way to ground. Finally, we can also see that pins $ILIM1$ and $ILIM2$ are connected to the same ground through the connection segment in green, whose function is supposed to be avoiding quiet ground terminals and ground loops \cite{DCcontroller}.
 
 		  \subsubsection{Shielding}
 				The motherboard is entirely enclosed in a metallic case in order to be well shielded, the case is shown in \autoref{fig:metalliccase}. Moreover, the aspect of shielding is present also in parts autonomous from the board, like cables going to the speakers or to the buttons (\autoref{fig:speaker} and \autoref{fig:button}): in this case we see the classic twisted cable useful to eliminate the constant component due to noise.
@@ -448,10 +445,10 @@
 				Other classical aspects characterize the design of this board:
 				\begin{itemize}
 				  \item as always, all the components and the tracks are surrounded by a ground plane useful to reduce coupling and radiation;
-				  \item from \autoref{fig:motherboard} and \autoref{fig:motherboard_bottom} it can be observed the great amount of ground traces in between the shield;
+				  \item from \autoref{fig:motherboard} and \autoref{fig:motherboard_bottom} it can be observed the great amount of ground traces in between the layers;
 				  \item the connectors of the board have several balancing resistances at the beginning/end of their transmission lines;
 				  \item of course, all the components are \gls{smd} type in order to minimize the space and optimize the surface occupation of the pins, so as to reduce as much as possible the impedance of the pitches;
-				  \item all the tracks have a width which is proportionate to the amount of current they have to bear, moreover there are no rect angles on them;
+				  \item all the tracks have a width which is proportionate to the amount of current they have to bear, moreover there are no right angles on them;
 				\end{itemize}
 
 				\begin{figure}[htbp]
@@ -463,16 +460,16 @@
 
 	\section{Human Computer Interaction}
 		\subsection{Wii U}
-			Wii U has 4 USB ports (two more than its predecessor \textit{Wii}), and each of them allows also to recharge the GamePad. This allows the user to connect more devices such as External Hard Disks or USB pens containing photos, games or music.
+			Wii U has 4 USB ports (two more than its predecessor \textit{Wii}), and each of them can also be used to recharge the GamePad. This allows the user to connect more devices such as External Hard Disks or USB pens containing photos, games or music.
 
-			A failure in the Wii U design is that 2 GamePads are supported, but this feature has been never used since no games have been developed with the support to 2 GamePads.
+			A failure in the Wii U design is that 2 GamePads are supported, but this feature has been never used since no games have been developed including the possibility of using 2 GamePads.
 		\subsection{GamePad}
-			The first thing that the GamePad shows up when you try to connect it to your TV, is a brief questionary about your TV model.
-			Indeed, with a dedicated button, Wii U's GamePad can control your TV, you can change the channel or the volume or you can view the program guide, as a normal Universal Remote.
-			This interesting function makes sense in terms of efficiency since usually you use the Wii U in the same device where you normally watch the TV, so for a user is usual to switch between games and television, and having a single device to control everything makes this action simpler.
+			The first thing that the GamePad displays when you try to connect it to your TV, is a brief questionnaire about your TV model.
+			Indeed, with a dedicated button on the Wii U's GamePad, the user can control his TV, change the channel and the volume, or view the program guide like a normal Universal Remote.
+			This interesting function makes sense in terms of efficiency since usually the user plays with the Wii U on the same device where he normally watches TV. Since it is common for a player to switch between games and television, having a single device to control everything makes this action simpler.
 
-			Some months after the Wii U's release date, Nintendo released a service called \textit{TVii}, a platform that allows to use the GamePad as a Remote Controller for a cable TV (as the stock one yet explained) and for streaming platforms like \textit{Netflix}, \textit{Amazon Prime Video}, etc..
-			The aim of the service is really functional to the device \DP{Non sono sicuro che si possa dire functional, volevo dire che l'aim di TVii è funzionale all'uso del GamePad}, but in the User Interface (the virtual one) 27 buttons at the same time are shown, plus 18 hard buttons distributed in the GamePad (in the front and in the back), making the usability of the service very difficult (the problem is shown in \autoref{fig:tviibuttons}).
+			Some months after the Wii U's release date, Nintendo released a service called \textit{TVii}, a platform that allows to use the GamePad as a Remote Controller for a cable TV (as the stock one yet explained) and for streaming platforms like \textit{Netflix}, \textit{Amazon Prime Video}, and so on.
+			The aim of the service is to widely foster the use of the device \cri{prova a vedere se così va bene}, but actually in the User Interface (the virtual one) 27 buttons are displayed at the same time, plus 18 hard buttons are distributed throughout the GamePad (in the front and in the back), making the usability of the service very difficult (the problem is shown in \autoref{fig:tviibuttons}).
 			\begin{figure}[htbp]
 				\begin{minipage}{.5\textwidth}
 					\includegraphics[width=\textwidth]{TViibuttons.png}
@@ -486,7 +483,7 @@
 				\end{minipage}
 			\end{figure}
 
-			The GamePad offer four different input types:
+			The GamePad offers four different input types:
 			\begin{itemize}
 				\item Hard buttons
 				\item Touchscreen controller
@@ -495,11 +492,12 @@
 			\end{itemize}
 			This wide choice can be viewed as an innovative approach to this type of devices or, more probably, a confusing and not so comfortable feature.
 
-			The possibility to have different type of inputs makes the videogames' design more complex, with the result that some games are developed to use most of Wii U's features, while the others use only a little part of them. Some games (even of the same \textit{Nintendo}), use the TV as a mirror for the GamePad, making the gameplay very confused.
+			The possibility to have different type of inputs makes the videogames' design more complex, with the result that some games are developed to use most of Wii U's features, while the others use only a little part of them. Moreover, some games (even of the same \textit{Nintendo}), use the TV as a mirror for the GamePad, making the gameplay very confused.
 
 			Another critical part in the Human Computer Interaction analysis is the battery life of the device.
-			The device has an autonomy of (on average) 4 hours. Counting that the GamePad can be used both as Universal Remote or to play games, 4 hours are definetly not enough.
-
+			The device has an autonomy of (on average) 4 hours and considering that the GamePad can be used both as Universal Remote or to play games, 4 hours are definitely not enough.
+  \section{Conclusions}
+    The Wii U console is a very complex device with several subsystems and components. Its power and thermal management system is detailed and well structured, even though the battery performance could be improved. The Electromagnetic compatibility is standard but well functioning, and attention has been payed also on the timing aspects (from \autoref{fig:motherboard} it can be seen how some tracks form serpentines in order to be lengthened and allow an on-time signal passage). Finally, the Human computer interaction is not one of the best that Nintendo designed, but the concepts and ideas on which it was based had some potential. 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,bibliography}
 
